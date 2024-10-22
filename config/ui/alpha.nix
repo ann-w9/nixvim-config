@@ -1,5 +1,5 @@
 {
-  plugins.bufferline = {
+  plugins.alpha = {
     enable = true;
   };
 }
