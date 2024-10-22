@@ -1,16 +1,34 @@
-# Nixvim template
+# Nixvim config
+My personal nixvim configuration as standalone derivation.
 
-This template gives you a good starting point for configuring nixvim standalone.
+## Usage:
+[Nivim Standalone Usage](https://nix-community.github.io/nixvim/modules/standalone.html)
 
-## Configuring
+**Install**
+import the flake in inputs:
+```
+inputs = {
+...
+    nixvim-config.url = "."
+...
+```
 
-To start configuring, just add or modify the nix files in `./config`.
-If you add a new configuration file, remember to add it to the
-[`config/default.nix`](./config/default.nix) file
+install the package on your system or home-manager packages:
+```
+# system
+enviroment.systemPackages = [
+    inputs.nixvim-config.packages.${system}.default
+];
 
-## Testing your new configuration
+# home-manager
+home-manager.users.<user>.home.packages = [
+    inputs.nixvim-config.packages.${system}.default
+]
+```
 
-To test your configuration simply run the following command
+
+## Run
+For run without install:
 
 ```
 nix run .
